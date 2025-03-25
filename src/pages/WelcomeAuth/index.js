@@ -1,36 +1,15 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, View,Image } from "react-native";
+import ActionButton from "./ActionButton";
+import { colors } from "../utils";
+import { bgwelcome, welcomeAuth } from "../../assets";
 
-const ActionButton = ({desc,title}) =>{
-    return(
-        <View style={{marginBottom:43,maxWidth:225}}>
-            <Text style={{ fontSize:10, color:'#7e7e7e' }}>
-                {desc}</Text>
-            <TouchableOpacity 
-            style={{
-                backgroundColor:'#A55EEA',
-                borderRadius : 25,
-                paddingVertical : 13,
-            }}>
-                <Text 
-                style={{
-                    fontSize:12,
-                    fontWeight: 'bold',
-                    color : 'white',
-                    textTransform : 'uppercase',
-                    textAlign : 'center',
-                }}
-                >{title}</Text>
-            </TouchableOpacity>
-        </View>
-    );
-};
 
 const WelcomeAuth = () => {
     return(
-        <View style={{alignItems:'center',justifyContent:'center',flex:1,backgroundColor:'white'}}>
-            <View style={{width : 219,height:117,backgroundColor : '#A55EEA',marginBottom:10}} />
-            <Text style={{ fontSize:10, fontWeight:'bold', color:'#A55EEA',marginBottom:76}}
+        <View style={style.wrapper.pages}>
+            <Image source={bgwelcome}  style={style.wrapper.ilustration} />
+            <Text style={style.wrapper.text.welcome}
             >Selamat Datang di E-Ojol
             </Text>
             <ActionButton desc='Silahkan masuk, jika anda sudah memiliki akun' title="masuk" />
@@ -38,5 +17,29 @@ const WelcomeAuth = () => {
         </View>
     );
 }
+
+const style = {
+    wrapper : {
+        pages : {
+            alignItems:'center',
+            justifyContent:'center',
+            flex:1,
+            backgroundColor:'white'
+        },
+        ilustration : {
+            width : 229,
+            height:270,
+            marginBottom:20,
+        },
+        text : {
+            welcome :  {
+                fontSize:10, 
+                fontWeight:'bold', 
+                color:colors.default,
+                marginBottom:76
+            },
+        },
+    },
+};
 
 export default WelcomeAuth;
