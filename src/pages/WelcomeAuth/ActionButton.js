@@ -3,12 +3,12 @@ import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { colors } from "../utils";
 import { Button } from "../../components";
-const ActionButton = ({desc,title}) =>{
+const ActionButton = ({desc,title,onPress}) =>{
     return(
         <View style={style.wrapper.component}>
             <Text style={style.text.desckripsi}>
                 {desc}</Text>
-                <Button title={title} />
+                <Button title={title} onPress={onPress} />
         </View>
     );
 };
